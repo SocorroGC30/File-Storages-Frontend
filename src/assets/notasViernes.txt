@@ -1,0 +1,41 @@
+ctrl c k d
+ctrl k f
+
+Agregar la longitud maxima de los comentarios
+
+trabajar en el filtro para obtner las incidencias creados
+
+agregar el type button para la lista 
+
+
+verifivar los estilos en los formularios 
+
+
+[HttpPost("createDetailsIncidence/{headerId:int}")]
+        public async Task<ActionResult> CreateDetailsIncidence(int headerId, [FromBody] DetailsRequestsIncidenceCretateDTO detailsDTO)
+        {
+            int employeeId = userSession.GetUserSessionId();
+            if (employeeId == 0)
+            {
+                return BadRequest("You don't hace access.");
+            }
+            //Se obtiene la cabecera de la solicitud
+
+            var idHeaderRequests = await context.IncHeaderRequestsIncidences.FirstOrDefaultAsync(x => x.Id == headerId);
+            if (idHeaderRequests == null)
+            {
+                return BadRequest("The header requests incidence has not been created");
+            }
+            //se actualiza la fecha de modificacion de la cabecera
+            idHeaderRequests.ModifiedDate = DateTime.Now;
+
+            var detailsInicdenceMap = mapper.Map<IncDetailsRequestsIncidence>(detailsDTO);
+            detailsInicdenceMap.HeaderRequestsIncidenceId = headerId;
+            detailsInicdenceMap.CreatedById = employeeId;
+            detailsInicdenceMap.CreatedDate = DateTime.Now;
+            detailsInicdenceMap.ModifiedById = employeeId;
+            detailsInicdenceMap.ModifiedDate = DateTime.Now;
+            await context.AddAsync(detailsInicdenceMap);
+            await context.SaveChangesAsync();
+            return Ok();
+        }

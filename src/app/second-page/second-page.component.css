@@ -1,0 +1,45 @@
+body{
+
+ font-family: 'Source Code Pro', monospace;
+}
+p{
+    font-size: 20px;
+}
+li{
+    list-style: none;
+    margin-right: 25px ;
+}
+.menu {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+ul{
+
+    display: flex;
+}
+a{
+ text-decoration: none;
+ color: black;
+ background-color: lightblue;
+ font-size: 14px;
+padding: 20px 30px 20px 30px;
+
+}
+.titular{
+ text-align: center;
+    margin-top: 200px;
+}
+
+h1{
+  font-size: 60px;
+    margin: 0;
+}
+h2{
+  font-size: 25PX;
+  margin-bottom: 40px;
+ }
+header{
+    background: url(src\assets\fondo.jpg);
+   }
+   

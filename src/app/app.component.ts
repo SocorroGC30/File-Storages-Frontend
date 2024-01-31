@@ -7,4 +7,23 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'File-Storages-Frontend';
+
+  //mammot = require("mammoth")
+
+  ngOnInit(): void {
+
+   // this.tests();
+  }
+
+  // tests(){
+  //   this.mammot.convertToHtml({path : "/assets/DocumentoSocorro.docx"})
+  //   .then((result) =>{
+  //     const html = result.value;
+  //     document.getElementById("contenido-docx").innerHTML = html;
+  //   })
+  //   .done();
+  // }
+
+
+  
 }
